@@ -4,7 +4,7 @@ import Nat "mo:base/Nat";
 
 import ActorSpec "./utils/ActorSpec";
 
-import Lib "../src/";
+import CircularBuffer "../src/";
 
 let {
     assertTrue;
@@ -19,12 +19,26 @@ let {
 
 let success = run([
     describe(
-        " (Function Name) ",
+        "CircularBuffer",
         [
             it(
-                "(test name)",
+                "add()",
                 do {
-                    assertTrue(true);
+                    let buffer = CircularBuffer.CircularBuffer<Nat>(3);
+
+                    buffer.add(1);
+                    buffer.add(2);
+                    buffer.add(3);
+                    buffer.push(4);
+                    buffer.push(5);
+                    buffer.push(6);
+                    buffer.push(7);
+
+                    assertAllTrue([
+                        buffer.get(0) == 5,
+                        buffer.get(1) == 6,
+                        buffer.get(2) == 7,
+                    ])
                 },
             ),
         ],
