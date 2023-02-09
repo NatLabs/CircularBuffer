@@ -41,6 +41,24 @@ let success = run([
                     ])
                 },
             ),
+            it("clear()", do{
+                let buffer = CircularBuffer.CircularBuffer<Nat>(3);
+
+                buffer.add(1);
+                buffer.add(2);
+                buffer.add(3);
+                buffer.clear();
+                buffer.push(4);
+                buffer.push(5);
+                buffer.push(6);
+                buffer.push(7);
+
+                assertAllTrue([
+                    buffer.get(0) == 5,
+                    buffer.get(1) == 6,
+                    buffer.get(2) == 7,
+                ])
+            })
         ],
     ),
 ]);

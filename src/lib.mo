@@ -182,6 +182,12 @@ module {
             reserve(n);
             max_capacity := n;
         };
+
+        public func clear() {
+            start := 0;
+            count := 0;
+            reserve(8);
+        };
     };
 
     /// Returns the values in the circular buffer as an array
@@ -203,4 +209,6 @@ module {
 
         circular_buffer;
     };
+
+    
 };
