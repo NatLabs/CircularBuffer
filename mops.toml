@@ -1,2 +1,9 @@
+[package]
+name = "circular-buffer"
+description = "A circular buffer implemented in motoko"
+repository = "https://github.com/NatLabs/CircularBuffer"
+keywords = ["circular buffer", "queue", "fifo", "ring buffer"]
+version = "0.0.1"
+
 [dependencies]
 base = "0.8.1"

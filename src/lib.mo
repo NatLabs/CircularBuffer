@@ -209,6 +209,5 @@ module {
 
         circular_buffer;
     };
-
     
 };
